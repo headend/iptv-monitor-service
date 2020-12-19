@@ -28,7 +28,7 @@ func StartServer()  {
 		log.Fatal("Cannot connect DB: " + db.Err.Error())
 	}
 
-	listenerAdd := fmt.Sprintf("%s:%d", config.RPC.Agent.Host, config.RPC.Agent.Port)
+	listenerAdd := fmt.Sprintf("%s:%d", config.RPC.AgentMonitor.Host, config.RPC.AgentMonitor.Port)
 	ln, err := net.Listen("tcp", listenerAdd)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
