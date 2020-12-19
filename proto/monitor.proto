@@ -58,14 +58,14 @@ message MonitorResponse {
     /**
     * Status
     */
-    AgentResponseStatus Status = 1 [json_name = "status"];
+    MonitorResponseStatus Status = 1 [json_name = "status"];
     /**
     * Slice of agent object
     */
-    repeated Monitor monitors = 2 [json_name = "data"];
+    repeated Monitor Monitors = 2 [json_name = "data"];
 }
 
-enum AgentResponseStatus {
+enum MonitorResponseStatus {
     FAIL = 0; /// Success
     SUCCESS = 1; /// Failed
 }

@@ -35,7 +35,7 @@ func StartServer()  {
 	}
 
 	rpcServer := grpc.NewServer(grpc.MaxSendMsgSize(2 * 1024 *1024), grpc.ConnectionTimeout(10 * time.Second), grpc.MaxConcurrentStreams(2048))
-	agentpb.RegisterAgentCTLServiceServer(rpcServer, &monitorServerService{config: &config, DB: &db})
+	monitorpb.RegisterMonitorServiceServer(rpcServer, &monitorServerService{config: &config, DB: &db})
 	if rpcServer == nil {
 		log.Fatalf("failed to register server: %v", err)
 	}
