@@ -1,0 +1,102 @@
+syntax = "proto3";
+/**
+ * Agent related messages.
+ */
+
+
+package proto;
+option go_package = "github.com/headend/iptv-monitor-service/proto";
+
+message Monitor {
+    int64 id = 1 [json_name = "id"];
+    int64 status_signal = 2 [json_name = "status_signal"];
+    int64 status_video = 3 [json_name = "status_video"];
+    int64 status_audio = 4 [json_name = "status_audio"];
+    bool signal_monitor = 5 [json_name = "signal_monitor"];
+    bool video_monitor = 6 [json_name = "video_monitor"];
+    bool audio_monitor = 7 [json_name = "audio_monitor"];
+    bool is_enable = 8 [json_name = "is_enable"];
+    string date_update = 9 [json_name = "date_update"];
+    int64 agent_id = 10 [json_name = "agent_id"];
+    int64 profile_id = 11 [json_name = "profile_id"];
+    int64 status_id = 12 [json_name = "status_id"];
+}
+
+
+/**
+ * Represents the params to identify monitor.
+ */
+message MonitorRequest {
+    int64 id = 1 [json_name = "id"];
+    int64 status_signal = 2 [json_name = "status_signal"];
+    int64 status_video = 3 [json_name = "status_video"];
+    int64 status_audio = 4 [json_name = "status_audio"];
+    bool signal_monitor = 5 [json_name = "signal_monitor"];
+    bool video_monitor = 6 [json_name = "video_monitor"];
+    bool audio_monitor = 7 [json_name = "audio_monitor"];
+    bool is_enable = 8 [json_name = "is_enable"];
+    string date_update = 9 [json_name = "date_update"];
+    int64 agent_id = 10 [json_name = "agent_id"];
+    int64 profile_id = 11 [json_name = "profile_id"];
+    int64 status_id = 12 [json_name = "status_id"];
+}
+
+message MonitorFilter {
+    int64 id = 1 [json_name = "id"];
+    int64 agent_id = 2 [json_name = "agent_id"];
+    int64 profile_id = 3 [json_name = "profile_id"];
+}
+
+message MonitorDelete {
+    int64 id = 1 [json_name = "id"];
+}
+
+message MonitorGetAll {
+}
+
+message MonitorResponse {
+    /**
+    * Status
+    */
+    AgentResponseStatus Status = 1 [json_name = "status"];
+    /**
+    * Slice of agent object
+    */
+    repeated Monitor monitors = 2 [json_name = "data"];
+}
+
+enum AgentResponseStatus {
+    FAIL = 0; /// Success
+    SUCCESS = 1; /// Failed
+}
+
+service MonitorService {
+    /**
+    * Get All Monitor
+    */
+    rpc Gets (MonitorGetAll) returns (MonitorResponse){
+    }
+    /**
+    * Get Monitor
+    */
+    rpc Get (MonitorFilter) returns (MonitorResponse){
+    }
+    /**
+    * Add Monitor
+    */
+    rpc Add (MonitorRequest) returns (MonitorResponse) {
+    }
+
+    /**
+    * Update Monitor
+    */
+    rpc Update (MonitorRequest) returns (MonitorResponse) {
+    }
+
+    /**
+    * Delete Monitor
+    */
+    rpc Delete (MonitorDelete) returns(MonitorResponse){
+    }
+}
+
