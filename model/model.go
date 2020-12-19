@@ -7,7 +7,7 @@ func (Monitor) TableName() string {
 }
 
 type Monitor struct {
-	Id  int64 `gorm:"column:id ;default:null"`
+	Id  int64 `gorm:"column:agent_id;AUTO_INCREMENT;primary_key"`
 	Status_signal int64 `gorm:"column:status_signal;default:1"`
 	Status_video  int64 `gorm:"column:status_video ;default:1"`
 	Status_audio  int64 `gorm:"column:status_audio ;default:1"`
