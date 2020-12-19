@@ -1,9 +1,8 @@
 package main
 
 import (
-	agent_services "iptv-monitor-service/monitor-services"
+	monitor_services "github.com/headend/iptv-monitor-service/monitor-services"
 	"log"
-	"github.com/headend/iptv-monitor-service/monitor-services"
 )
 
 
