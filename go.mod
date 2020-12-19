@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/golang/protobuf v1.4.3
-	github.com/headend/share-module v0.0.0-20201218071449-0b7214da2b4b
+	github.com/headend/share-module v0.0.0-20201219064024-aec69e082ab5
 	github.com/jinzhu/gorm v1.9.16
 	golang.org/x/net v0.0.0-20201216054612-986b41b23924 // indirect
 	golang.org/x/sys v0.0.0-20201218084310-7d0127a74742 // indirect
